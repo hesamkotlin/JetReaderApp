@@ -14,7 +14,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.jetreaderapp.ui.theme.JetReaderAppTheme
 import com.google.firebase.firestore.FirebaseFirestore
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,16 +40,7 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
         text = "Hello $name!",
         modifier = modifier
     )
-    val db = FirebaseFirestore.getInstance()
-    val user : MutableMap<String , Any> = HashMap()
-    user["firstName"] = " Hesam"
-    user["lastName"] = " Naderi"
 
-    db.collection("Users").add(user).addOnSuccessListener {
-        Log.d("FB", "Greeting: ${it.id}")
-    }.addOnFailureListener{
-        Log.d("FB", "Greeting: $it")
-    }
 }
 
 @Preview(showBackground = true)
