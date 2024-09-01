@@ -1,7 +1,5 @@
 package com.example.jetreaderapp.navigation
 
-import android.window.SplashScreen
-
 enum class ReaderScreens {
 
     SplashScreen,
